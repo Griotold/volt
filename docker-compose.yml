@@ -10,6 +10,17 @@ services:
       - "5432:5432"
     volumes:
       - volt_db_data:/var/lib/postgresql/data
+      - ./ddl.sql:/docker-entrypoint-initdb.d/00_ddl.sql
+      - ./data/sellers.sql:/docker-entrypoint-initdb.d/01_sellers.sql
+      - ./data/brands.sql:/docker-entrypoint-initdb.d/02_brands.sql
+      - ./data/categories.sql:/docker-entrypoint-initdb.d/03_categories.sql
+      - ./data/tags.sql:/docker-entrypoint-initdb.d/04_tags.sql
+      - ./data/products.sql:/docker-entrypoint-initdb.d/05_products.sql
+      - ./data/product_options.sql:/docker-entrypoint-initdb.d/06_product_options.sql
+      - ./data/product_extended.sql:/docker-entrypoint-initdb.d/07_product_extended.sql
+      - ./data/users.sql:/docker-entrypoint-initdb.d/08_users.sql
+      - ./data/reviews.sql:/docker-entrypoint-initdb.d/09_reviews.sql
 
 volumes:
   volt_db_data:
+
