@@ -1,0 +1,15 @@
+services:
+  postgres-db:
+    image: postgres:17
+    container_name: volt-postgres
+    environment:
+      POSTGRES_USER: griotold
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: volt
+    ports:
+      - "5432:5432"
+    volumes:
+      - volt_db_data:/var/lib/postgresql/data
+
+volumes:
+  volt_db_data:
